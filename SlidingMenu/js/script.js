@@ -10,21 +10,23 @@ $(document).ready(function(){
 
 function readLS(){
 	localStorage.setItem('menu', JSON.stringify(src));
+
+	
 	return JSON.parse(localStorage.getItem('menu'));
 }
 
-
+// класс Menu: src - исходный массив эл-ов из ls, place - куда отрисовывать, visible - отображать или нет (для подменю, подменю - отдельный экземпляр Menu)
 function Menu(src, place, visible){
 	this.place = place;
 	
 	var menuItemsArr = src.map((function(item){
 		return new MenuItem(item, this);
-	}).bind(this));
+	}).bind(this));		// массив объектов элементов меню (MenuItem)
 
 	if(visible===undefined)
 		visible=true;
 
-	this.left = visible ? 0 : 500;
+	this.left = visible ? 0 : 500;		// свойство для анимации (float: 0 - для отображения, 500 - сдвиг вправо, -500 - влево)
 
 	this.ul = $('<ul/>', {
 			class: 'menu-list', 
@@ -32,7 +34,6 @@ function Menu(src, place, visible){
 				display: (visible ? 'block' : 'none'),
 				left: this.left + 'px'
 			}
-			//style: (visible ? 'display: block' : 'display: none')
 		}
 	);
 	
@@ -54,6 +55,7 @@ function Menu(src, place, visible){
 	};
 }
 
+// класс MenuItem: src - эл-т меню (эл-т исх массива), menu - ссылка на Menu
 function MenuItem(src, menu){
 	var type = src.Type;
 	var title = src.Title;
@@ -66,34 +68,34 @@ function MenuItem(src, menu){
 		if (sub)
 			elem = (new SubMenu(src, menu)).drawSpan();
 		else
-			elem = drawRef();
+			elem = $('<a>', {
+				text: title, 
+				href: '#', 
+				class: 'menu-item',
+				click: function(e){
+					e.preventDefault();
+				}
+			});
 		
 		elem.appendTo(li);
 		li.appendTo(place);
 	};
 
-	function drawRef(){
-		return $('<a>', {
-			text: title, 
-			href: '#', 
-			class: 'menu-item',
-			click: function(e){
-				e.preventDefault();
-			}
-		});
-	}
 
 }
 
+// сущность для описания подменю
 function SubMenu(src, parent){
 	var type = src.Type;
 	var title = src.Title;
 	var sub = src.Sub;
 
+	// новый объект Menu
 	var menu = new Menu(sub, parent.place, false);
 	menu.left = 500;
 	menu.draw();
 
+	// кнопка Назад
 	var li = $('<li/>', {style: 'border-bottom: 1px solid #eee'});
 	var backButton = 
 		$('<span/>', {
