@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "./static/css/main.173461ac.chunk.css",
+    "main.js": "./static/js/main.fb2b0274.chunk.js",
+    "main.js.map": "./static/js/main.fb2b0274.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.138d7e6a.js",
+    "runtime-main.js.map": "./static/js/runtime-main.138d7e6a.js.map",
+    "static/css/2.39b76e08.chunk.css": "./static/css/2.39b76e08.chunk.css",
+    "static/js/2.62a551fe.chunk.js": "./static/js/2.62a551fe.chunk.js",
+    "static/js/2.62a551fe.chunk.js.map": "./static/js/2.62a551fe.chunk.js.map",
+    "index.html": "./index.html",
+    "static/css/2.39b76e08.chunk.css.map": "./static/css/2.39b76e08.chunk.css.map",
+    "static/css/main.173461ac.chunk.css.map": "./static/css/main.173461ac.chunk.css.map",
+    "static/js/2.62a551fe.chunk.js.LICENSE.txt": "./static/js/2.62a551fe.chunk.js.LICENSE.txt",
+    "static/media/App.scss": "./static/media/Roboto-ThinItalic.082b9e84.ttf",
+    "static/media/all.min.css": "./static/media/fa-solid-900.46fdbd2d.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.138d7e6a.js",
+    "static/css/2.39b76e08.chunk.css",
+    "static/js/2.62a551fe.chunk.js",
+    "static/css/main.173461ac.chunk.css",
+    "static/js/main.fb2b0274.chunk.js"
+  ]
+}
